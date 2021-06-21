@@ -35,11 +35,10 @@ public class Employee implements Serializable {
     private Long id;
 
     //@Column(name = "name", nullable = false, unique = true)
-    //private String name;
     @Column(name = "name")
     private String name;
 
-    @Column(name = "state")
+    @Column(name = "state", columnDefinition = "default 'IDLE'")
     @Enumerated(value = EnumType.STRING)
     private EmployeeEvents state;
 
