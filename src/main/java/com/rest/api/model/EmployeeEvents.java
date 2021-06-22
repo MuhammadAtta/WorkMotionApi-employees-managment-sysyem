@@ -7,5 +7,5 @@ package com.rest.api.model;
  */
 
 public enum EmployeeEvents {
-    IDLE, ACTIVE, DELETED
+  ADDED,IN_CHECK,APPROVED,ACTIVE
 }

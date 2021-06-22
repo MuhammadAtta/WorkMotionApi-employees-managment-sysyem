@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class IdleToActiveAction implements Action<String, String> {
+public class AddedToActiveAction implements Action<String, String> {
 
-    private final static Logger logger = LoggerFactory.getLogger(IdleToActiveAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(AddedToActiveAction.class);
 
     @Override
     public void execute(StateContext<String, String> context) {
@@ -25,7 +25,7 @@ public class IdleToActiveAction implements Action<String, String> {
         if (employee == null) {
             logger.debug("Action: Wrong transition?");
         } else {
-            logger.debug("Action: changing the idle employee to active.. {}", employee);
+            logger.debug("Action: changing the added employee to active.. {}", employee);
         }
     }
 }

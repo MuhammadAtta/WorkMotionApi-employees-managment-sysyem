@@ -7,5 +7,5 @@ package com.rest.api.model;
  */
 
 public enum EmployeeStates {
-    IDLE, ACTIVE, DELETED
+ ADDED,IN_CHECK,APPROVED,ACTIVE
 }

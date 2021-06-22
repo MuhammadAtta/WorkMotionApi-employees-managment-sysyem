@@ -38,9 +38,9 @@ public class Employee implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "state", columnDefinition = "default 'IDLE'")
+    @Column(name = "state", columnDefinition = "default 'ADDED'")
     @Enumerated(value = EnumType.STRING)
-    private EmployeeEvents state;
+    private EmployeeEvents state  = EmployeeEvents.ADDED;
 
 
     public Long getId() {
