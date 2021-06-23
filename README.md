@@ -30,3 +30,5 @@ Please provide a solution with the  above features with the following considerat
 - For state machine could be as simple as of using ENUM or by using https://projects.spring.io/spring-statemachine/ 
 - Please provide testing for your solution.
 - Providing an API Contract e.g. OPENAPI spec. is a big plus
+
+http://localhost:9091/employee/swagger-ui/index.html?configUrl=/employee/v3/api-docs/swagger-config#/
