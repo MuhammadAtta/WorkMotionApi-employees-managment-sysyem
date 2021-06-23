@@ -18,6 +18,8 @@ import org.springframework.kafka.annotation.KafkaListener;
 @EntityScan
 public class Application {
     public static void main(String[] args) {
+        System.setProperty("server.servlet.context-path", "/employee");
+
         try {
             SpringApplication.run(Application.class, args);
         }
