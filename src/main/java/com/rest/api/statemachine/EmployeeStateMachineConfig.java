@@ -48,16 +48,16 @@ public class EmployeeStateMachineConfig extends StateMachineConfigurerAdapter<St
             throws Exception {
         transitions.withExternal()
                 .source(EmployeeStates.ADDED.name()).target(EmployeeStates.ACTIVE.name())
-                .event(EmployeeEvents.ACTIVE.name())
+                .event(EmployeeEvents.eACTIVE.name())
                 .guard(addedToActiveGuard).action(addedToActiveAction)
                 .and().withExternal()
                 .source(EmployeeStates.ACTIVE.name()).target(EmployeeStates.ADDED.name())
                 .event(EmployeeEvents.ADDED.name())
                 .and().withExternal()
                 .source(EmployeeStates.ADDED.name()).target(EmployeeStates.IN_CHECK.name())
-                .event(EmployeeEvents.IN_CHECK.name())
+                .event(EmployeeEvents.eIN_CHECK.name())
                 .and().withExternal()
                 .source(EmployeeStates.ACTIVE.name()).target(EmployeeStates.APPROVED.name())
-                .event(EmployeeEvents.APPROVED.name());
+                .event(EmployeeEvents.eAPPROVED.name());
     }
 }
