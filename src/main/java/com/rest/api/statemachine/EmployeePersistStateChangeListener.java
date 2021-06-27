@@ -2,6 +2,7 @@ package com.rest.api.statemachine;
 
 import com.rest.api.model.Employee;
 import com.rest.api.model.EmployeeEvents;
+import com.rest.api.model.EmployeeStates;
 import com.rest.api.repository.EmployeeRepository;
 import com.rest.api.service.EmployeeService;
 import com.rest.api.utils.EmployeeConstants;
@@ -39,21 +40,17 @@ public class EmployeePersistStateChangeListener implements PersistStateChangeLis
                           StateMachine<String, String> stateMachine)
     {
 
-        System.out.println("onPersist ()==================== ");
-
         if (message == null && message.getHeaders().containsKey(EmployeeConstants.employeeHeader)) {
 
             Employee employee = message.getHeaders().get(EmployeeConstants.employeeHeader, Employee.class);
-            EmployeeEvents events = employee.getState();
+            EmployeeStates events = EmployeeStates.valueOf(employee.getState());
 
             employeeService.replaceEmployee(employee.getId(),  events);
 
-
-            employee.setState(EmployeeEvents.valueOf(employee.getState().name()));
+            employee.setState(employee.getState());
             logger.debug("Persisting: the new employee.. {}", employee);
             employeeRepository.save(employee);
 
-            System.out.println("employee.getId() ==================== EmployeePersistStateChangeListener" + employee.getId());
         }
     }
 

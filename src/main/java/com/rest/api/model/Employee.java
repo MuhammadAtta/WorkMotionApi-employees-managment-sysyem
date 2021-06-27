@@ -1,15 +1,9 @@
 package com.rest.api.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -38,10 +32,9 @@ public class Employee implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "state", columnDefinition = "default 'ADDED'")
-    @Enumerated(value = EnumType.STRING)
-    private EmployeeEvents state  = EmployeeEvents.ADDED;
 
+@Column(name = "state")
+private String state  = "ADDED";
 
     public Long getId() {
         return id;
@@ -59,12 +52,12 @@ public class Employee implements Serializable {
         this.name = name;
     }
 
-    public void setState(EmployeeEvents state) {
-        this.state = state;
+    public String getState(String state) {
+        return state;
     }
 
-    public EmployeeEvents getState(EmployeeEvents state) {
-        return state;
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Override

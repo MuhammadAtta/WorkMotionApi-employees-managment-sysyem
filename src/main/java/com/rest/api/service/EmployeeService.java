@@ -2,7 +2,7 @@ package com.rest.api.service;
 
 
 import com.rest.api.model.Employee;
-import com.rest.api.model.EmployeeEvents;
+import com.rest.api.model.EmployeeStates;
 import com.rest.api.repository.EmployeeRepository;
 import com.rest.api.utils.EmployeeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,6 @@ public class EmployeeService {
     private PersistStateMachineHandler persistStateMachineHandler;
 
     public Iterable<Employee> findAllEmployees() {
-        System.out.println(" -- getting all Employees --");
         Iterable<Employee> iterable = employeeRepository.findAll();
         for (Employee employee : iterable) {
             System.out.println(employee);
@@ -44,14 +43,13 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Boolean replaceEmployee(Long id, EmployeeEvents event) {
-        System.out.println("updateState() ==================== " );
-        System.out.println("id ---" +id+ "====================" + "event --- "+ event );
+    public Boolean replaceEmployee(Long id, EmployeeStates event) {
 
         Optional<Employee> employee = employeeRepository.findById(id);
         return persistStateMachineHandler.handleEventWithState(
                 MessageBuilder.withPayload(event.name()).setHeader(EmployeeConstants.employeeHeader, employee).build(),
-                employee.get().getState().name()
+                employee.get().getState()
+
         );
     }
 }

@@ -16,12 +16,12 @@ import org.springframework.kafka.annotation.KafkaListener;
 @ComponentScan(basePackages = "com.rest.api.*")
 @SpringBootApplication
 @EntityScan
-public class Application {
+public class ApplicationApi {
     public static void main(String[] args) {
         System.setProperty("server.servlet.context-path", "/employee");
 
         try {
-            SpringApplication.run(Application.class, args);
+            SpringApplication.run(ApplicationApi.class, args);
         }
         catch (ApplicationContextException ace) {
             if (ace.getCause() instanceof IllegalStateException) {

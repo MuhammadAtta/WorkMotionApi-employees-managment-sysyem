@@ -13,10 +13,15 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ *
+ * @author Muhammad Atta
+ *
+ */
 
 @Configuration
 @EnableKafka

@@ -7,6 +7,5 @@ package com.rest.api.model;
  */
 
 public enum EmployeeEvents {
-  ADDED,eIN_CHECK,eAPPROVED,eACTIVE
-
+  CHECKING,APPROVE,ACTIVATE
 }

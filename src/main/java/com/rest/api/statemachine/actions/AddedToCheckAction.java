@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AddedToActiveAction implements Action<String, String> {
+public class AddedToCheckAction implements Action<String, String> {
 
-    private final static Logger logger = LoggerFactory.getLogger(AddedToActiveAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(AddedToCheckAction.class);
 
     @Override
     public void execute(StateContext<String, String> context) {

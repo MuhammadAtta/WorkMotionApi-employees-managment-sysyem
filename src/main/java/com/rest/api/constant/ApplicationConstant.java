@@ -1,5 +1,11 @@
 package com.rest.api.constant;
 
+/**
+ *
+ * @author Muhammad Atta
+ *
+ */
+
 public class ApplicationConstant {
     public static final String KAFKA_LOCAL_SERVER_CONFIG = "localhost:9092";
     public static final String TOPIC_NAME = "work-motion-topic-1";

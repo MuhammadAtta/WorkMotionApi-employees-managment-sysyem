@@ -7,5 +7,5 @@ package com.rest.api.model;
  */
 
 public enum EmployeeStates {
- ADDED,IN_CHECK,APPROVED,ACTIVE
+  ADDED,IN_CHECK,APPROVED,ACTIVE
 }

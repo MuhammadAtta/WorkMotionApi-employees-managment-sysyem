@@ -1,7 +1,6 @@
 package com.rest.api.controller;
 
 import com.rest.api.model.Employee;
-import com.rest.api.model.EmployeeEvents;
 import com.rest.api.model.EmployeeStates;
 import com.rest.api.repository.EmployeeRepository;
 import com.rest.api.service.EmployeeService;
@@ -28,11 +27,8 @@ public class EmployeeController {
     EmployeeRepository employeeRepository;
 
 
-
-
-
     // Return Single employee
-    @GetMapping("/employees/{id}")
+    @GetMapping("/employee/{id}")
     Optional<Employee> singleEmployee(@PathVariable Long id) {
         return employeeService.getEmployee(id);
     }
@@ -52,38 +48,20 @@ public class EmployeeController {
     }
 
 
-
-
-
-
-
     // Update State employee
     @RequestMapping(value = "/{id}/update/{event}")
-    public Boolean sendEvent(@PathVariable("id") Long id, @PathVariable("event") EmployeeEvents events) {
-        System.out.println("sendEvent() ====================EmployeeController " );
+    public Boolean sendEvent(@PathVariable("id") Long id, @PathVariable("event") EmployeeStates events) {
         updateEventEmployee(new Employee() ,events ,id);
-        System.out.println("id ====================EmployeeController "+ id );
-        System.out.println("event ====================EmployeeController "+ events );
 
-        System.out.println("new Employee() ====================EmployeeController "+ new Employee().getState(events).name() );
-
-        System.out.println("sendEvent() ==================== updateState() " );
-
-        return employeeService.replaceEmployee(id,events);
-
-
+         employeeService.replaceEmployee(id,events);
+        return true;
     }
     // Update Event employee
-    Employee updateEventEmployee(Employee newEmployee, EmployeeEvents events, Long id) {
-        System.out.println("updateEventEmployee() ====================EmployeeController " );
+    Employee updateEventEmployee(Employee newEmployee, EmployeeStates events, Long id) {
 
         return employeeRepository.findById(id)
                 .map(employee -> {
-                    //  employee.setState(newEmployee.getState());
-                    employee.setState(newEmployee.getState(events));
-
-                    //  employee.setState(events);
-
+                   employee.setState(newEmployee.getState(String.valueOf(events)));
                     return employeeRepository.save(employee);
                 })
                 .orElseGet(() -> {
@@ -91,8 +69,4 @@ public class EmployeeController {
                     return employeeRepository.save(newEmployee);
                 });
     }
-
-
-
-
 }

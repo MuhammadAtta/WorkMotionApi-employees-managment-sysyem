@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AddedToActiveGuard implements Guard<String, String> {
+public class AddedToCheckGuard implements Guard<String, String> {
 
-    private final static Logger logger = LoggerFactory.getLogger(AddedToActiveGuard.class);
+    private final static Logger logger = LoggerFactory.getLogger(AddedToCheckGuard.class);
 
     @Override
     public boolean evaluate(StateContext<String, String> context) {

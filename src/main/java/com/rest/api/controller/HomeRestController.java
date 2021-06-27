@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/")
 public class HomeRestController {
-
     @GetMapping
     public String sayHello() {
-        return "Welcome to the Employees Management System Application. API endpoint.";
+        return "Welcome to the Employees Management System ApplicationApi. API endpoint.";
     }
 }
