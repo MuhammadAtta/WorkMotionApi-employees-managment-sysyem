@@ -1,8 +1,7 @@
 # WorkMotionApi-employees-managment-sysyem
 - Coding task /senior software engineer / Java position.
 
-http://localhost:9091/api/swagger-ui/index.html?configUrl=/employee/v3/api-docs/swagger-config#/
-
+http://localhost:9091/employee/swagger-ui/index.html?configUrl=/employee/v3/api-docs/swagger-config#
 
 As a part of our backend engineering team, you will be responsible for building our core platform including an  employees managment system.
 
