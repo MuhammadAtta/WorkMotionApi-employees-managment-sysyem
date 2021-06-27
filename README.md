@@ -1,6 +1,9 @@
 # WorkMotionApi-employees-managment-sysyem
 - Coding task /senior software engineer / Java position.
 
+http://localhost:9091/api/swagger-ui/index.html?configUrl=/employee/v3/api-docs/swagger-config#/
+
+
 As a part of our backend engineering team, you will be responsible for building our core platform including an  employees managment system.
 
 The employees on this system are assigned to different states, Initially when an employee is added it will be assigned "ADDED" state automatically .
@@ -31,4 +34,3 @@ Please provide a solution with the  above features with the following considerat
 - Please provide testing for your solution.
 - Providing an API Contract e.g. OPENAPI spec. is a big plus
 
-http://localhost:9091/employee/swagger-ui/index.html?configUrl=/employee/v3/api-docs/swagger-config#/
